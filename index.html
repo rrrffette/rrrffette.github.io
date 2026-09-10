@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>进入暗影界 - 暗影界背景设定、进入条件与玩法指南</title>
+<meta name="description" content="进入暗影界是许多玩家关注的核心内容。本页梳理暗影界的世界观设定、进入方式与前置条件、区域结构、盟约系统、常见问题与新手注意事项，帮助你快速理解并顺利开启暗影界之旅。">
+<meta name="keywords" content="进入暗影界,暗影界,暗影界怎么进,暗影界盟约,暗影界区域,暗影界攻略">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0b0d1a;
+    --bg-soft:#131731;
+    --panel:#181d3c;
+    --panel-2:#1f2547;
+    --line:#2b3160;
+    --text:#e8eaf6;
+    --text-dim:#a3a9cf;
+    --text-mute:#767ca8;
+    --accent:#7c5cff;
+    --accent-2:#38e0c8;
+    --accent-3:#ffb03a;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(124,92,255,.28), transparent 60%),
+      radial-gradient(900px 500px at 5% 0%, rgba(56,224,200,.16), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{width:min(1180px,92%);margin:0 auto;}
+
+  /* 顶部 */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,26,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:14px 0;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:42px;height:42px;flex:0 0 42px;
+    border-radius:12px;
+    background:linear-gradient(140deg,var(--accent),#3a2a8f 60%,var(--accent-2));
+    display:grid;place-items:center;
+    font-weight:800;font-size:20px;color:#fff;
+    box-shadow:0 6px 18px rgba(124,92,255,.45);
+  }
+  .brand-text strong{display:block;font-size:17px;letter-spacing:.5px;}
+  .brand-text span{display:block;font-size:12px;color:var(--text-mute);letter-spacing:2px;}
+
+  .main-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .main-nav a{
+    padding:8px 14px;border-radius:999px;
+    font-size:14px;color:var(--text-dim);
+    transition:.2s;
+  }
+  .main-nav a:hover{background:var(--panel-2);color:#fff;}
+
+  /* 首屏 */
+  .hero{padding:64px 0 48px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr .9fr;gap:44px;align-items:center;
+  }
+  .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 14px;border-radius:999px;
+    background:rgba(124,92,255,.16);
+    border:1px solid rgba(124,92,255,.4);
+    color:#c9bcff;font-size:13px;letter-spacing:1px;
+  }
+  .hero h1{
+    font-size:clamp(30px,4.4vw,50px);
+    line-height:1.22;margin:20px 0 16px;letter-spacing:1px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,var(--accent-2),var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    color:var(--text-dim);font-size:17px;max-width:640px;margin:0 0 26px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;
+    font-size:15px;font-weight:600;cursor:pointer;
+    border:1px solid transparent;transition:.22s;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg,var(--accent),#5b3fd6);
+    color:#fff;box-shadow:0 10px 24px rgba(124,92,255,.38);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(124,92,255,.5);}
+  .btn-ghost{
+    border-color:var(--line);color:var(--text-dim);background:rgba(255,255,255,.02);
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:#fff;}
+
+  .hero-card{
+    background:linear-gradient(160deg,var(--panel),#12162f);
+    border:1px solid var(--line);
+    border-radius:20px;padding:26px;
+    box-shadow:var(--shadow);
+  }
+  .hero-card h2{
+    font-size:16px;margin:0 0 16px;color:var(--text-dim);
+    letter-spacing:2px;font-weight:600;
+  }
+  .realm-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .realm-list li{
+    display:flex;align-items:center;gap:14px;
+    padding:12px 14px;border-radius:12px;
+    background:var(--panel-2);border:1px solid transparent;
+    transition:.2s;
+  }
+  .realm-list li:hover{border-color:rgba(124,92,255,.55);transform:translateX(4px);}
+  .realm-dot{
+    width:10px;height:10px;border-radius:50%;flex:0 0 10px;
+    background:var(--accent-2);box-shadow:0 0 12px var(--accent-2);
+  }
+  .realm-list li:nth-child(2) .realm-dot{background:var(--accent);box-shadow:0 0 12px var(--accent);}
+  .realm-list li:nth-child(3) .realm-dot{background:var(--accent-3);box-shadow:0 0 12px var(--accent-3);}
+  .realm-list li:nth-child(4) .realm-dot{background:#ff6b8b;box-shadow:0 0 12px #ff6b8b;}
+  .realm-list b{font-size:15px;font-weight:600;}
+  .realm-list small{display:block;color:var(--text-mute);font-size:12.5px;line-height:1.5;}
+
+  /* 通用区块 */
+  section.block{padding:56px 0;}
+  .sec-head{margin-bottom:32px;}
+  .sec-head .kicker{
+    color:var(--accent-2);font-size:13px;letter-spacing:3px;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .sec-head h2{
+    font-size:clamp(22px,2.9vw,32px);margin:0 0 12px;letter-spacing:.5px;
+  }
+  .sec-head p{color:var(--text-dim);margin:0;max-width:760px;font-size:15.5px;}
+
+  /* 步骤 */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .step{
+    position:relative;
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px 22px;
+    transition:.24s;
+  }
+  .step:hover{transform:translateY(-6px);border-color:rgba(124,92,255,.6);box-shadow:var(--shadow);}
+  .step .num{
+    font-size:34px;font-weight:800;line-height:1;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:14px;display:block;
+  }
+  .step h3{font-size:17px;margin:0 0 10px;}
+  .step p{margin:0;color:var(--text-dim);font-size:14.5px;}
+
+  /* 区域卡片 */
+  .zones{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .zone{
+    background:linear-gradient(150deg,var(--panel),#141832);
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;position:relative;overflow:hidden;
+  }
+  .zone::after{
+    content:"";position:absolute;right:-40px;top:-40px;
+    width:130px;height:130px;border-radius:50%;
+    background:radial-gradient(circle,rgba(124,92,255,.3),transparent 70%);
+  }
+  .zone h3{margin:0 0 8px;font-size:19px;display:flex;align-items:center;gap:10px;}
+  .zone h3 .badge{
+    font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;
+    background:rgba(56,224,200,.15);color:var(--accent-2);
+    border:1px solid rgba(56,224,200,.35);
+  }
+  .zone p{margin:0 0 14px;color:var(--text-dim);font-size:14.5px;}
+  .zone ul{margin:0;padding-left:18px;color:var(--text-dim);font-size:14px;}
+  .zone ul li{margin-bottom:6px;}
+
+  /* 盟约表格 */
+  .covenant-table{
+    width:100%;border-collapse:collapse;
+    background:var(--panel);border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);font-size:14.5px;
+  }
+  .covenant-table th,.covenant-table td{
+    padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .covenant-table th{
+    background:var(--panel-2);color:#cfd3f5;font-weight:600;
+    font-size:13.5px;letter-spacing:1px;
+  }
+  .covenant-table tr:last-child td{border-bottom:none;}
+  .covenant-table td:first-child{color:#fff;font-weight:600;white-space:nowrap;}
+  .covenant-table td{color:var(--text-dim);}
+
+  /* 建议列表 */
+  .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tip{
+    background:var(--panel);border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:12px;padding:22px;
+  }
+  .tip h3{margin:0 0 10px;font-size:16.5px;color:#fff;}
+  .tip p{margin:0;color:var(--text-dim);font-size:14.5px;}
+  .tip:nth-child(2){border-left-color:var(--accent-2);}
+  .tip:nth-child(3){border-left-color:var(--accent-3);}
+
+  /* 侧栏布局 */
+  .split{display:grid;grid-template-columns:1.6fr 1fr;gap:34px;align-items:start;}
+  .article p{color:var(--text-dim);margin:0 0 16px;font-size:15.5px;}
+  .article h3{font-size:18px;margin:28px 0 12px;color:#fff;}
+  .article h3:first-child{margin-top:0;}
+
+  .aside-box{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px;margin-bottom:20px;
+  }
+  .aside-box h3{
+    font-size:15px;margin:0 0 16px;color:#fff;
+    padding-bottom:12px;border-bottom:1px solid var(--line);
+    letter-spacing:1px;
+  }
+  .aside-box ul{list-style:none;margin:0;padding:0;}
+  .aside-box ul li{
+    padding:9px 0;font-size:14.5px;color:var(--text-dim);
+    border-bottom:1px dashed rgba(43,49,96,.9);
+    display:flex;justify-content:space-between;gap:10px;
+  }
+  .aside-box ul li:last-child{border-bottom:none;}
+  .aside-box ul li span{color:var(--text-mute);font-size:13px;}
+
+  /* FAQ */
+  .faq{display:grid;gap:14px;}
+  .faq details{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:0 20px;transition:.2s;
+  }
+  .faq details[open]{border-color:rgba(124,92,255,.6);}
+  .faq summary{
+    cursor:pointer;list-style:none;padding:18px 0;
+    font-size:16px;font-weight:600;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+";font-size:22px;color:var(--accent-2);
+    line-height:1;transition:.2s;flex:0 0 auto;
+  }
+  .faq details[open] summary::after{content:"−";}
+  .faq .answer{
+    padding:0 0 20px;color:var(--text-dim);font-size:14.8px;
+  }
+
+  /* 页脚 */
+  .site-footer{
+    margin-top:40px;border-top:1px solid var(--line);
+    background:rgba(10,12,24,.9);padding:44px 0 26px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;
+    padding-bottom:30px;border-bottom:1px solid var(--line);
+  }
+  .footer-grid h4{font-size:14px;margin:0 0 14px;color:#fff;letter-spacing:1px;}
+  .footer-grid p{color:var(--text-mute);font-size:13.5px;margin:0;line-height:1.8;}
+  .footer-grid ul{list-style:none;margin:0;padding:0;}
+  .footer-grid ul li{margin-bottom:9px;}
+  .footer-grid ul a{color:var(--text-mute);font-size:13.5px;transition:.2s;}
+  .footer-grid ul a:hover{color:var(--accent-2);}
+  .footer-bottom{
+    padding-top:20px;display:flex;justify-content:space-between;
+    gap:14px;flex-wrap:wrap;color:var(--text-mute);font-size:13px;
+  }
+
+  /* 响应式 */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:34px;}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .tips-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+    .main-nav a{padding:7px 11px;font-size:13px;}
+    .hero{padding:44px 0 30px;}
+    section.block{padding:40px 0;}
+    .zones{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .covenant-table{display:block;overflow-x:auto;white-space:nowrap;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-mark">影</div>
+      <div class="brand-text">
+        <strong>暗影界指南</strong>
+        <span>SHADOWLANDS</span>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#how">进入方式</a>
+      <a href="#zones">区域结构</a>
+      <a href="#covenant">盟约系统</a>
+      <a href="#tips">新手建议</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag">◆ 世界观 · 玩法 · 前置条件</span>
+        <h1>进入<em>暗影界</em>：从设定理解到实际开启的完整说明</h1>
+        <p class="lead">
+          暗影界是生与死之间的彼岸世界，也是众多玩家在完成前置剧情后才会接触到的全新地图体系。
+          如果你想弄清楚“进入暗影界”到底需要什么条件、进去之后先做什么、有哪些容易踩的坑，
+          这一页会把关键信息按顺序讲清楚。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#how">查看进入步骤</a>
+          <a class="btn btn-ghost" href="#faq">先看常见问题</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="暗影界主要区域概览">
+        <h2>主要区域一览</h2>
+        <ul class="realm-list">
+          <li>
+            <span class="realm-dot"></span>
+            <div><b>晋升堡垒</b><small>秩序与使命感的区域，整体氛围明亮庄重</small></div>
+          </li>
+          <li>
+            <span class="realm-dot"></span>
+            <div><b>玛卓克萨斯</b><small>军事与竞争色彩浓厚，强调力量与战术</small></div>
+          </li>
+          <li>
+            <span class="realm-dot"></span>
+            <div><b>炽蓝仙野</b><small>自然与轮回主题，节奏舒缓、色彩柔和</small></div>
+          </li>
+          <li>
+            <span class="realm-dot"></span>
+            <div><b>雷文德斯</b><small>赎罪与惩戒的舞台，风格偏哥特与肃穆</small></div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 进入方式 -->
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">How to enter</div>
+        <h2>进入暗影界的四个关键环节</h2>
+        <p>不同版本与账号状态下，具体流程会略有差别，但整体逻辑基本一致：先满足角色条件，再推进引导剧情，最后通过传送节点正式踏入暗影界。</p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <span class="num">01</span>
+          <h3>确认角色等级与进度</h3>
+          <p>暗影界属于后续资料片内容，通常需要角色达到对应等级区间，并已完成前序主线剧情。等级不足时，引导任务不会正常出现。</p>
+        </article>
+        <article class="step">
+          <span class="num">02</span>
+          <h3>接取引导任务</h3>
+          <p>在主城或任务日志中会出现指向暗影界的引导任务。建议先清空任务栏，避免与其他长线任务混淆，方便追踪进度。</p>
+        </article>
+        <article class="step">
+          <span class="num">03</span>
+          <h3>完成前置剧情</h3>
+          <p>引导流程通常包含若干段剧情任务与场景战斗，节奏偏线性。完成后才会开放通往暗影界的正式通道。</p>
+        </article>
+        <article class="step">
+          <span class="num">04</span>
+          <h3>通过传送节点进入</h3>
+          <p>完成前置后，可通过指定传送点或任务指引进入暗影界主城区域，随后开始选择自己的盟约路线。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 区域结构 -->
+  <section class="block" id="zones">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Zones</div>
+        <h2>暗影界由哪些区域构成</h2>
+        <p>暗影界并非单一地图，而是由多个风格差异明显的区域组成。每个区域都有自己的主题、任务线与代表性玩法，玩家会按剧情顺序逐步解锁。</p>
+      </div>
+
+      <div class="zones">
+        <article class="zone">
+          <h3>晋升堡垒 <span class="badge">秩序</span></h3>
+          <p>以使命、晋升与责任为核心主题的区域，整体色调明亮，建筑规整。</p>
+          <ul>
+            <li>适合熟悉暗影界基础机制的阶段</li>
+            <li>任务线偏线性，指引清晰</li>
+            <li>剧情围绕晋升仪式与信念展开</li>
+          </ul>
+        </article>
+
+        <article class="zone">
+          <h3>玛卓克萨斯 <span class="badge">力量</span></h3>
+          <p>军事化氛围最强的区域，强调竞争、战术与家族势力之间的博弈。</p>
+          <ul>
+            <li>战斗节奏相对紧凑</li>
+            <li>势力关系与阵营选择较有存在感</li>
+            <li>区域地形层次丰富，注意路线规划</li>
+          </ul>
+        </article>
+
+        <article class="zone">
+          <h3>炽蓝仙野 <span class="badge">轮回</span></h3>
+          <p>以自然、灵魂与轮回为主题的柔和区域，视觉上更接近梦境般的森林。</p>
+          <ul>
+            <li>氛围舒缓，适合慢慢体验剧情</li>
+            <li>任务多与灵魂守护相关</li>
+            <li>地图色彩鲜明，辨识度较高</li>
+          </ul>
+        </article>
+
+        <article class="zone">
+          <h3>雷文德斯 <span class="badge">赎罪</span></h3>
+          <p>围绕赎罪、惩戒与救赎展开的区域，风格偏暗色、哥特与庄重。</p>
+          <ul>
+            <li>剧情主题偏沉重，文本量较大</li>
+            <li>建筑与场景辨识度强</li>
+            <li>适合喜欢叙事深度的玩家</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 盟约系统 -->
+  <section class="block" id="covenant">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Covenants</div>
+        <h2>进入暗影界后的盟约选择</h2>
+        <p>盟约是暗影界玩法的核心分支之一。它会影响你获得的技能、可参与的玩法内容以及日常任务的方向。选择前建议先了解各盟约的定位，而不是只看外观。</p>
+      </div>
+
+      <table class="covenant-table">
+        <thead>
+          <tr>
+            <th>盟约</th>
+            <th>风格定位</th>
+            <th>适合人群</th>
+            <th>选择前建议</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>格里恩</td>
+            <td>秩序、职责与协作</td>
+            <td>偏好清晰指引与团队配合的玩家</td>
+            <td>关注盟约技能与自身职业的契合度</td>
+          </tr>
+          <tr>
+            <td>通灵领主</td>
+            <td>力量、竞争与战术</td>
+            <td>喜欢战斗节奏与策略搭配的玩家</td>
+            <td>留意技能在实战循环中的位置</td>
+          </tr>
+          <tr>
+            <td>法夜</td>
+            <td>自然、灵魂与轮回</td>
+            <td>偏好机动性与灵活打法的玩家</td>
+            <td>结合日常玩法习惯综合判断</td>
+          </tr>
+          <tr>
+            <td>温西尔</td>
+            <td>赎罪、惩戒与仪式感</td>
+            <td>重视剧情氛围与叙事体验的玩家</td>
+            <td>先体验剧情再决定是否长期投入</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 正文 + 侧栏 -->
+  <section class="block">
+    <div class="wrap split">
+      <div class="article">
+        <h3>为什么“进入暗影界”会成为高频搜索词</h3>
+        <p>
+          对很多玩家来说，暗影界是一个明显的分界线：此前的游戏体验偏传统地图探索，而进入暗影界之后，玩法结构、任务组织方式和成长路径都会发生变化。
+          因此，搜索“进入暗影界”的人往往不是单纯想知道一个入口在哪，而是想确认自己是否已经满足条件、进去之后会不会卡住、有没有需要提前准备的东西。
+        </p>
+
+        <h3>进入之前值得做的准备</h3>
+        <p>
+          第一，整理背包与任务栏。暗影界的前置剧情会连续推送多个任务，如果任务栏已满，容易出现接不到新任务的情况。
+          第二，确认角色的基础装备与消耗品是否够用，前置剧情中包含战斗环节，虽然难度不高，但准备充分会顺畅很多。
+          第三，提前了解自己想要选择的盟约方向，避免进入后反复纠结、影响体验节奏。
+        </p>
+
+        <h3>进入之后先做什么</h3>
+        <p>
+          刚进入暗影界时，建议优先推进主线剧情，而不是急着探索支线。主线会逐步解锁区域功能、飞行点与盟约相关内容，
+          过早分散精力容易导致功能未开放、来回跑图。等主线推进到一定阶段后，再回头清理支线与收集内容，效率会更高。
+        </p>
+
+        <h3>关于节奏的一点提醒</h3>
+        <p>
+          暗影界的内容体量较大，剧情、盟约、日常与副本交织在一起。如果目标是完整体验，建议按区域顺序推进；
+          如果目标是快速进入核心玩法，则可以优先完成与盟约相关的任务线，再根据需要补足其他内容。
+          两种方式都没有对错，关键是先明确自己的目标。
+        </p>
+      </div>
+
+      <aside>
+        <div class="aside-box">
+          <h3>进入前检查清单</h3>
+          <ul>
+            <li>角色等级是否达标 <span>必要</span></li>
+            <li>前置主线是否完成 <span>必要</span></li>
+            <li>任务栏是否留有空位 <span>建议</span></li>
+            <li>背包空间是否充足 <span>建议</span></li>
+            <li>基础消耗品是否备好 <span>建议</span></li>
+          </ul>
+        </div>
+
+        <div class="aside-box">
+          <h3>常见卡点提示</h3>
+          <ul>
+            <li>引导任务不出现 <span>检查等级</span></li>
+            <li>任务无法交付 <span>检查背包</span></li>
+            <li>找不到传送点 <span>看任务指引</span></li>
+            <li>盟约无法选择 <span>推进主线</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 新手建议 -->
+  <section class="block" id="tips">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Tips</div>
+        <h2>给初次进入暗影界的玩家</h2>
+        <p>以下三点是最容易被忽略、但对体验影响较大的地方。</p>
+      </div>
+
+      <div class="tips-grid">
+        <article class="tip">
+          <h3>不要跳过剧情文本</h3>
+          <p>暗影界的任务文本承担了大量世界观解释。快速跳过虽然省时间，但后续遇到人名、地名与势力关系时容易一头雾水。</p>
+        </article>
+        <article class="tip">
+          <h3>盟约选择不必过度焦虑</h3>
+          <p>盟约的影响主要体现在玩法方向与技能配置上。先按自己的偏好选择，后续仍有机会根据实际体验进行调整。</p>
+        </article>
+        <article class="tip">
+          <h3>优先解锁功能性内容</h3>
+          <p>飞行点、传送与日常功能通常随主线解锁。先把这些打开，之后无论做任务还是跑图都会轻松很多。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2>关于进入暗影界的常见问题</h2>
+        <p>以下问题整理自玩家最常遇到的疑惑，回答以通用情况为准，具体以游戏内实际指引为准。</p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>进入暗影界需要满足什么条件？</summary>
+          <div class="answer">
+            通常需要角色达到对应等级区间，并完成前序资料片的主线剧情。满足条件后，引导任务会自动出现或可在任务日志中接取。
+            如果长时间没有出现引导任务，建议先检查等级与主线完成度。
+          </div>
+        </details>
+
+        <details>
+          <summary>为什么我接不到进入暗影界的任务？</summary>
+          <div class="answer">
+            常见原因包括：等级未达标、前置主线尚未完成、任务栏已满，或当前处于其他任务线的强制阶段。
+            依次排查这几项，多数情况都能解决。
+          </div>
+        </details>
+
+        <details>
+          <summary>进入暗影界后可以随时返回原来的世界吗？</summary>
+          <div class="answer">
+            在完成相应引导后，通常可以通过主城或传送节点往返。具体方式以游戏内实际开放的传送功能为准，
+            建议进入后先确认主城传送点的位置。
+          </div>
+        </details>
+
+        <details>
+          <summary>盟约选错了怎么办？</summary>
+          <div class="answer">
+            盟约并非不可更改，但切换通常需要满足一定条件并完成相应流程。建议在首次选择前先了解各盟约的玩法方向，
+            减少后续调整的成本。
+          </div>
+        </details>
+
+        <details>
+          <summary>新手进入暗影界应该先做什么？</summary>
+          <div class="answer">
+            优先推进主线剧情，解锁区域功能与传送点，再根据兴趣选择盟约并展开日常内容。
+            不建议一进入就分散精力做支线，容易造成功能未开放、来回跑图的情况。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>暗影界指南</h4>
+        <p>
+          一个围绕暗影界世界观、进入条件与玩法结构整理的信息页面，
+          帮助初次接触的玩家快速建立整体认知，减少摸索成本。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#how">进入方式</a></li>
+          <li><a href="#zones">区域结构</a></li>
+          <li><a href="#covenant">盟约系统</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>新手相关</h4>
+        <ul>
+          <li><a href="#tips">新手建议</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#how">前置条件</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>说明</h4>
+        <ul>
+          <li><a href="#faq">内容以通用情况为准</a></li>
+          <li><a href="#how">具体以游戏内指引为准</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 暗影界指南 · 内容仅供理解与参考</span>
+      <span>进入暗影界 · 世界观 · 盟约 · 区域</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑滚动增强（针对不支持 scroll-behavior 的浏览器）
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = this.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+          </html>
