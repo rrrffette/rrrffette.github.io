@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险岛万能疗伤药-效果、获取方式与使用场景全解析</title>
+<meta name="description" content="冒险岛万能疗伤药是游戏中常用的恢复类消耗品，本文整理万能疗伤药的作用效果、获取途径、使用场景与常见问题，帮助玩家合理储备与使用。">
+<meta name="keywords" content="冒险岛万能疗伤药,冒险岛疗伤药,万能疗伤药获取,冒险岛恢复道具,冒险岛消耗品">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;
+  background:#f4f7f2;
+  color:#2a3328;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- 顶部导航 ---------- */
+header.site-header{
+  background:linear-gradient(135deg,#3f8f3d 0%,#2f6f34 60%,#245a2a 100%);
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 2px 14px rgba(28,60,30,.25);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 0;
+  flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .leaf{
+  width:42px;height:42px;border-radius:12px;
+  background:radial-gradient(circle at 30% 25%,#c8f2a4,#6cc25c 60%,#3d8a3c);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;box-shadow:inset 0 -3px 6px rgba(0,0,0,.18);
+}
+.brand-text h1{font-size:20px;font-weight:700;letter-spacing:.5px;line-height:1.2}
+.brand-text span{font-size:12px;opacity:.82;letter-spacing:2px}
+nav.main-nav ul{display:flex;list-style:none;gap:6px;flex-wrap:wrap}
+nav.main-nav a{
+  display:block;padding:8px 14px;border-radius:20px;
+  font-size:14px;color:#eaf7e4;transition:.25s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{
+  background:rgba(255,255,255,.18);color:#fff;
+}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 45%),
+    linear-gradient(160deg,#5aa84f 0%,#3d8a3c 55%,#2c6b31 100%);
+  color:#fff;
+  padding:56px 0 64px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;left:-60px;bottom:-90px;
+  width:260px;height:260px;border-radius:50%;
+  background:rgba(255,255,255,.07);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:44px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+.hero h2{
+  font-size:34px;
+  line-height:1.35;
+  margin-bottom:16px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+.hero h2 em{
+  font-style:normal;
+  color:#ffe98a;
+}
+.hero p.lead{
+  font-size:16px;
+  color:#e6f5e0;
+  margin-bottom:22px;
+  max-width:600px;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.hero-tags span{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  padding:5px 13px;border-radius:16px;font-size:13px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:26px;
+  font-size:15px;
+  font-weight:600;
+  transition:.25s;
+  cursor:pointer;
+  border:none;
+}
+.btn-primary{background:#ffe98a;color:#2f6f34}
+.btn-primary:hover{background:#fff4b8;transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:#fff;
+  border:1.5px solid rgba(255,255,255,.6);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+/* 首屏右侧药瓶卡 */
+.potion-card{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:20px;
+  padding:26px 24px;
+  backdrop-filter:blur(4px);
+  text-align:center;
+}
+.potion-visual{
+  width:110px;height:130px;margin:0 auto 16px;
+  position:relative;
+}
+.potion-visual .bottle{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,#e9fbe0 0%,#b7ecb0 40%,#78cf6e 100%);
+  border-radius:14px 14px 22px 22px;
+  box-shadow:inset -8px -10px 18px rgba(0,0,0,.12),0 10px 22px rgba(0,0,0,.22);
+}
+.potion-visual .bottle::before{
+  content:"";
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  width:34px;height:20px;border-radius:6px 6px 0 0;
+  background:#d9c48a;
+}
+.potion-visual .cross{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:34px;color:#2f6f34;font-weight:800;
+}
+.potion-card h3{font-size:17px;margin-bottom:8px}
+.potion-card p{font-size:13.5px;color:#e6f5e0}
+.potion-stats{
+  display:flex;justify-content:space-around;
+  margin-top:18px;padding-top:16px;
+  border-top:1px dashed rgba(255,255,255,.3);
+}
+.potion-stats div{font-size:12px;color:#dcefd6}
+.potion-stats strong{display:block;font-size:16px;color:#ffe98a;margin-bottom:2px}
+
+/* ---------- 通用区块 ---------- */
+section.block{padding:60px 0}
+.section-head{margin-bottom:34px}
+.section-head .kicker{
+  display:inline-block;
+  font-size:13px;
+  letter-spacing:3px;
+  color:#3d8a3c;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.section-head h2{
+  font-size:26px;
+  color:#24401f;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+.section-head p{
+  margin-top:10px;
+  color:#5d6b58;
+  font-size:15px;
+  max-width:760px;
+}
+
+/* ---------- 效果说明 ---------- */
+.effect-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+.effect-card{
+  background:#fff;
+  border-radius:16px;
+  padding:26px 22px;
+  border:1px solid #e2ecdd;
+  box-shadow:0 6px 18px rgba(60,110,60,.06);
+  transition:.25s;
+}
+.effect-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 26px rgba(60,110,60,.14);
+  border-color:#b9dfae;
+}
+.effect-card .icon{
+  width:46px;height:46px;border-radius:12px;
+  background:#eaf7e3;
+  color:#3d8a3c;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:14px;
+}
+.effect-card h3{font-size:17px;margin-bottom:8px;color:#26401f}
+.effect-card p{font-size:14px;color:#5d6b58}
+
+/* ---------- 获取途径 ---------- */
+.obtain{background:#fff;border-top:1px solid #e6efe1;border-bottom:1px solid #e6efe1}
+.obtain-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.obtain-item{
+  display:flex;gap:16px;
+  padding:20px;
+  border-radius:14px;
+  background:#f8fbf5;
+  border:1px solid #e4efdd;
+}
+.obtain-item .num{
+  flex:0 0 38px;height:38px;border-radius:10px;
+  background:#3d8a3c;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;
+}
+.obtain-item h3{font-size:16px;margin-bottom:6px;color:#26401f}
+.obtain-item p{font-size:13.5px;color:#5d6b58}
+
+/* ---------- 使用场景表格 ---------- */
+.scene-table-wrap{overflow-x:auto;border-radius:14px;border:1px solid #e2ecdd;background:#fff}
+table.scene-table{width:100%;border-collapse:collapse;min-width:620px}
+table.scene-table th,table.scene-table td{
+  padding:14px 18px;
+  text-align:left;
+  font-size:14px;
+  border-bottom:1px solid #eef4ea;
+}
+table.scene-table th{
+  background:#eaf7e3;
+  color:#2c5c2b;
+  font-weight:700;
+  white-space:nowrap;
+}
+table.scene-table tr:last-child td{border-bottom:none}
+table.scene-table tbody tr:hover{background:#f8fbf5}
+table.scene-table td.tag{color:#3d8a3c;font-weight:600;white-space:nowrap}
+
+/* ---------- 使用建议 侧栏布局 ---------- */
+.tips-layout{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:32px;
+  align-items:start;
+}
+.tips-main p{margin-bottom:16px;color:#4d5c48;font-size:15px}
+.tips-main ul{list-style:none;margin:18px 0}
+.tips-main li{
+  position:relative;
+  padding-left:26px;
+  margin-bottom:12px;
+  font-size:14.5px;
+  color:#4d5c48;
+}
+.tips-main li::before{
+  content:"✔";
+  position:absolute;left:0;top:0;
+  color:#4faa4a;font-size:14px;
+}
+aside.tips-side{
+  background:linear-gradient(160deg,#3f8f3d,#2c6b31);
+  color:#fff;
+  border-radius:18px;
+  padding:26px 24px;
+  box-shadow:0 10px 26px rgba(47,111,52,.28);
+}
+aside.tips-side h3{font-size:17px;margin-bottom:14px}
+aside.tips-side ul{list-style:none}
+aside.tips-side li{
+  font-size:14px;
+  padding:10px 0;
+  border-bottom:1px dashed rgba(255,255,255,.25);
+  color:#e8f6e2;
+}
+aside.tips-side li:last-child{border-bottom:none}
+aside.tips-side li strong{color:#ffe98a;display:block;font-size:14.5px;margin-bottom:2px}
+
+/* ---------- FAQ ---------- */
+.faq{background:#fff;border-top:1px solid #e6efe1}
+.faq-list{max-width:880px;margin:0 auto}
+details.faq-item{
+  border:1px solid #e2ecdd;
+  border-radius:12px;
+  margin-bottom:14px;
+  background:#fbfdf9;
+  overflow:hidden;
+  transition:.2s;
+}
+details.faq-item[open]{border-color:#b9dfae;box-shadow:0 6px 16px rgba(60,110,60,.08)}
+details.faq-item summary{
+  cursor:pointer;
+  padding:16px 20px;
+  font-size:15.5px;
+  font-weight:600;
+  color:#26401f;
+  list-style:none;
+  position:relative;
+  padding-right:46px;
+}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{
+  content:"+";
+  position:absolute;right:20px;top:50%;
+  transform:translateY(-50%);
+  font-size:20px;color:#4faa4a;font-weight:400;
+  transition:.25s;
+}
+details.faq-item[open] summary::after{content:"−"}
+details.faq-item .faq-body{
+  padding:0 20px 18px;
+  font-size:14.5px;
+  color:#5d6b58;
+}
+
+/* ---------- 页脚 ---------- */
+footer.site-footer{
+  background:#1f3a1d;
+  color:#b9cdb4;
+  padding:44px 0 26px;
+  font-size:14px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:32px;
+  margin-bottom:30px;
+}
+.footer-grid h4{color:#fff;font-size:15px;margin-bottom:14px;font-weight:700}
+.footer-grid p{font-size:13.5px;line-height:1.8;color:#a8bfa3}
+.footer-grid ul{list-style:none}
+.footer-grid li{margin-bottom:9px}
+.footer-grid a{color:#b9cdb4;font-size:13.5px;transition:.2s}
+.footer-grid a:hover{color:#ffe98a}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:18px;
+  text-align:center;
+  font-size:12.5px;
+  color:#8ba487;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .tips-layout{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  nav.main-nav ul{gap:2px}
+  nav.main-nav a{padding:7px 11px;font-size:13px}
+  .hero{padding:40px 0 46px}
+  .hero h2{font-size:25px}
+  .hero p.lead{font-size:14.5px}
+  section.block{padding:44px 0}
+  .section-head h2{font-size:21px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .btn{padding:11px 20px;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="leaf">🌿</div>
+      <div class="brand-text">
+        <h1>冒险岛万能疗伤药</h1>
+        <span>恢复道具 · 使用指南</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#effect" class="active">效果说明</a></li>
+        <li><a href="#obtain">获取途径</a></li>
+        <li><a href="#scene">使用场景</a></li>
+        <li><a href="#tips">使用建议</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h2>冒险岛万能疗伤药：<em>一瓶在手，续航不愁</em></h2>
+        <p class="lead">
+          在冒险岛里，血量管理直接决定了刷图效率与生存能力。万能疗伤药作为常见的恢复类消耗品，
+          是许多玩家背包中的常备物资。本页围绕它的作用、获取方式、适用场景与使用习惯，做一次系统梳理，
+          方便你判断该备多少、什么时候用、怎么用更划算。
+        </p>
+        <div class="hero-tags">
+          <span>恢复类消耗品</span>
+          <span>刷图续航</span>
+          <span>背包常备</span>
+          <span>新手友好</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#effect" class="btn btn-primary">查看效果说明</a>
+          <a href="#obtain" class="btn btn-ghost">了解获取方式</a>
+        </div>
+      </div>
+
+      <div class="potion-card">
+        <div class="potion-visual">
+          <div class="bottle"></div>
+          <div class="cross">＋</div>
+        </div>
+        <h3>万能疗伤药</h3>
+        <p>恢复类消耗品 · 战斗与日常皆可使用</p>
+        <div class="potion-stats">
+          <div><strong>恢复</strong>生命值</div>
+          <div><strong>随身</strong>可堆叠</div>
+          <div><strong>通用</strong>各职业</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 效果说明 -->
+  <section class="block" id="effect">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">EFFECT</span>
+        <h2>万能疗伤药能做什么</h2>
+        <p>
+          简单来说，它属于游戏内的恢复类消耗品，主要用途是在角色生命值下降时进行补充。
+          不同版本、不同服务器对具体数值与规则可能有差异，以下从功能定位角度进行说明，实际效果请以游戏内道具说明为准。
+        </p>
+      </div>
+
+      <div class="effect-grid">
+        <article class="effect-card">
+          <div class="icon">❤️</div>
+          <h3>恢复生命值</h3>
+          <p>角色受到伤害后使用，可补充一定量的生命值，帮助你在连续战斗中维持安全血线，减少回城补给的次数。</p>
+        </article>
+        <article class="effect-card">
+          <div class="icon">🎒</div>
+          <h3>随身携带方便</h3>
+          <p>作为消耗品可放入背包并设置快捷键，战斗中一键使用，不必频繁打开背包翻找，操作节奏更顺畅。</p>
+        </article>
+        <article class="effect-card">
+          <div class="icon">⚔️</div>
+          <h3>适配多种职业</h3>
+          <p>恢复类道具通常不限制职业，近战与远程角色都能使用，适合作为通用的基础补给放在背包里。</p>
+        </article>
+        <article class="effect-card">
+          <div class="icon">🧭</div>
+          <h3>适合长线刷图</h3>
+          <p>在需要长时间停留同一地图刷怪时，充足的恢复品能显著降低中断频率，让经验与掉落获取更连贯。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 获取途径 -->
+  <section class="block obtain" id="obtain">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">OBTAIN</span>
+        <h2>常见的获取途径</h2>
+        <p>
+          万能疗伤药的来源通常不止一种，不同阶段可以选择成本更低、更省时间的方式。
+          下面按常见渠道分类整理，具体掉率与售价请以你所在服务器的实际情况为准。
+        </p>
+      </div>
+
+      <div class="obtain-list">
+        <div class="obtain-item">
+          <div class="num">01</div>
+          <div>
+            <h3>NPC 商店购买</h3>
+            <p>城镇中的药水商人一般会出售基础恢复类道具，适合资金充足、想快速补货的玩家，随买随用，不必等待掉落。</p>
+          </div>
+        </div>
+        <div class="obtain-item">
+          <div class="num">02</div>
+          <div>
+            <h3>怪物掉落</h3>
+            <p>部分地图的怪物会掉落恢复类消耗品，长时间刷图时背包会自然积累，属于边打边攒的获取方式。</p>
+          </div>
+        </div>
+        <div class="obtain-item">
+          <div class="num">03</div>
+          <div>
+            <h3>任务与活动奖励</h3>
+            <p>部分任务、日常活动或签到类玩法会把恢复道具作为奖励发放，适合顺手领取、慢慢囤积。</p>
+          </div>
+        </div>
+        <div class="obtain-item">
+          <div class="num">04</div>
+          <div>
+            <h3>玩家间交易</h3>
+            <p>在允许交易的服务器中，可通过市场或玩家间交易获取，价格会随供需波动，购买前建议先比价。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用场景 -->
+  <section class="block" id="scene">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">SCENE</span>
+        <h2>什么情况下用更合适</h2>
+        <p>
+          恢复类道具的价值在于“用对时机”。以下整理了几种典型场景，帮助你判断什么时候该依赖万能疗伤药，什么时候可以省着用。
+        </p>
+      </div>
+
+      <div class="scene-table-wrap">
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>场景</th>
+              <th>使用建议</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tag">长时间刷怪</td>
+              <td>常备、按需使用</td>
+              <td>血线下降后及时补充，避免因血量过低被迫中断刷图节奏。</td>
+            </tr>
+            <tr>
+              <td class="tag">挑战精英怪物</td>
+              <td>提前准备充足</td>
+              <td>战斗时间较长、伤害较高时，恢复品数量直接关系到能否坚持到底。</td>
+            </tr>
+            <tr>
+              <td class="tag">组队副本</td>
+              <td>配合队友节奏</td>
+              <td>治疗职业无法顾及所有人时，自带恢复品能减轻团队压力。</td>
+            </tr>
+            <tr>
+              <td class="tag">日常任务跑图</td>
+              <td>适量携带</td>
+              <td>跑图过程中难免受伤，少量携带即可应对突发情况，不必塞满背包。</td>
+            </tr>
+            <tr>
+              <td class="tag">低等级练级</td>
+              <td>按消耗速度补充</td>
+              <td>低等级阶段掉血较慢，可根据实际消耗速度决定购买数量，避免浪费。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用建议 -->
+  <section class="block" id="tips">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">TIPS</span>
+        <h2>使用与储备的实用建议</h2>
+        <p>把恢复品用好，本质上是在管理时间、金币和背包空间。以下几点可以作为日常参考。</p>
+      </div>
+
+      <div class="tips-layout">
+        <div class="tips-main">
+          <p>
+            很多玩家会遇到这样的情况：刷图刷到一半发现药水见底，只能回城补给，一来一回浪费不少时间。
+            与其临时抱佛脚，不如在出发前根据地图强度、预计停留时间和自身防御能力，估算一个合理的携带量。
+          </p>
+          <p>
+            另外，恢复品并非越多越好。背包格子有限，携带过量会挤占掉落物品的空间。
+            建议把恢复品和回城卷轴、增益道具等按比例分配，形成一套自己习惯的补给配置。
+          </p>
+          <ul>
+            <li>把恢复品拖到快捷键栏，战斗中减少操作步骤。</li>
+            <li>根据地图怪物强度调整携带数量，难度高的地图多备一些。</li>
+            <li>留意背包剩余空间，避免因装满而错过掉落。</li>
+            <li>定期整理仓库，把暂时用不到的道具存起来，保持背包清爽。</li>
+            <li>关注游戏内活动，部分活动期间补给成本可能更低。</li>
+          </ul>
+          <p>
+            需要提醒的是，游戏版本更新可能会调整道具数值、售价或掉落规则。
+            如果你发现实际体验与描述不符，建议以游戏内道具说明和官方公告为准，及时调整自己的补给策略。
+          </p>
+        </div>
+
+        <aside class="tips-side">
+          <h3>补给小备忘</h3>
+          <ul>
+            <li><strong>出发前</strong>确认恢复品数量是否够用</li>
+            <li><strong>战斗中</strong>血线偏低就补，不要硬撑</li>
+            <li><strong>回城后</strong>顺手补货，避免下次临时采购</li>
+            <li><strong>版本更新后</strong>重新确认道具说明与价格</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block faq" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center">
+        <span class="kicker">FAQ</span>
+        <h2>常见问题</h2>
+        <p style="margin-left:auto;margin-right:auto">
+          以下问题来自玩家在了解和使用万能疗伤药时较常遇到的疑惑，答案以通用规则为主，具体情况请结合游戏内说明判断。
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>万能疗伤药和普通疗伤药有什么区别？</summary>
+          <div class="faq-body">
+            两者都属于恢复类消耗品，区别通常体现在恢复量、使用限制或获取难度上。
+            万能疗伤药往往定位更通用，适合作为常备补给；普通疗伤药则可能在价格或数量上更亲民。
+            具体差异请以游戏内道具描述为准。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>新手阶段需要大量储备吗？</summary>
+          <div class="faq-body">
+            不一定。低等级阶段掉血速度相对较慢，按实际消耗速度补充即可，没必要一次性囤积过多。
+            随着等级提升、地图难度增加，再逐步提高携带量会更合理。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>恢复品可以交易或存放仓库吗？</summary>
+          <div class="faq-body">
+            是否可交易、可存放，取决于道具本身的设定以及所在服务器的规则。
+            建议查看道具说明中的绑定状态，或在游戏内尝试操作确认。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>背包放不下怎么办？</summary>
+          <div class="faq-body">
+            可以优先清理低价值材料、重复道具，或把不常用的物品存入仓库。
+            也可以根据当前地图的实际消耗速度，适当减少携带数量，把格子留给掉落物品。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>为什么不同玩家说的效果不一样？</summary>
+          <div class="faq-body">
+            游戏会随版本更新调整道具数值与规则，不同服务器、不同时间段的设定也可能存在差异。
+            遇到说法不一致时，以自己所在服务器当前的道具说明为准最稳妥。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>关于本站</h4>
+        <p>
+          本站围绕冒险岛中的恢复类消耗品进行资料整理，内容以功能说明、使用场景和常见问题为主，
+          帮助玩家更清晰地理解道具定位与使用思路。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#effect">效果说明</a></li>
+          <li><a href="#obtain">获取途径</a></li>
+          <li><a href="#scene">使用场景</a></li>
+          <li><a href="#tips">使用建议</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>温馨提示</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#tips">补给备忘</a></li>
+          <li>以游戏内说明为准</li>
+          <li>合理安排游戏时间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 冒险岛万能疗伤药资料整理 · 页面内容仅供参考，具体数值与规则请以游戏内实际显示为准
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('nav.main-nav a');
+  links.forEach(function(link){
+    link.addEventListener('click', function(){
+      links.forEach(function(l){ l.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
